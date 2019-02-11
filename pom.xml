@@ -5,12 +5,13 @@
   <artifactId>DummyApplication</artifactId>
   <packaging>war</packaging>
   <version>1.622</version>
-  <name>DummyApplication Maven Webapp</name>
+  <name>DummyApplication Maven Webapp with SQ</name>
   <url>http://maven.apache.org</url>
   <properties>
 	<spring.version>4.0.1.RELEASE</spring.version>
   </properties>
   <dependencies>
+  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

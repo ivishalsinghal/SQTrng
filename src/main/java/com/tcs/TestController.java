@@ -13,7 +13,7 @@ public class TestController {
 	public ModelAndView showMessage(
 			@RequestParam(value = "name", required = false, defaultValue = "Skyguide") String name) {
 		System.out.println("in controller");
- 
+
 		ModelAndView mv = new ModelAndView("dummyworld");
 		mv.addObject("message", message);
 		mv.addObject("name", name);
