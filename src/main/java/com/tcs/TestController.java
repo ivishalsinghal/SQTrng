@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class TestController {
-	String message = "Welcome";
+	String message = "Welcome";//This is an invalid comment
 	 
 	@RequestMapping("/hello")
 	public ModelAndView showMessage(
