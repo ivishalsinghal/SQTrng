@@ -1,6 +1,7 @@
 sonar.host.url=https://mtxwddop04.sce.com:9000
 sonar.login:d6ec85110c0f4b1b579e25fc231cf26006d82d1f
 
+#Name of SQ Project
 sonar.projectKey=test002
 
 sonar.sources=/var/lib/jenkins/workspace/Folder1/Job2/src
