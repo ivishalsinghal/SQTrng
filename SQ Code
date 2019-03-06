@@ -8,7 +8,7 @@ sonar.sources=/var/lib/jenkins/workspace/Folder1/Job2/src
 sonar.java.binaries=/var/lib/jenkins/workspace/Folder1/Job2/target/classes
 
 
-
+#Jenkins pipeline script
 node('masterLinux'){
 stage ('checkout'){
     git branch: 'Dev1',
