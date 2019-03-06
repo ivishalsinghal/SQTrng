@@ -9,6 +9,7 @@ sonar.java.binaries=/var/lib/jenkins/workspace/Folder1/Job2/target/classes
 
 
 #Jenkins pipeline script
+#Its working without specifying node name
 node('masterLinux'){
 stage ('checkout'){
     git branch: 'Dev1',
