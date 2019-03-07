@@ -1,17 +1,19 @@
 pipeline {
-    agent any 
+    agent none 
     stages {
-        stage('Checkout') { 
+        stage('Example Build') {
+            //agent { docker 'maven:3-alpine' } 
             steps {
-                // Checkout from Githubn
-                 
+                echo 'Hello, Maven'
+                sh 'mvn --version'
             }
         }
-        stage('Build') { 
+        stage('Example Test') {
+            //agent { docker 'openjdk:8-jre' } 
             steps {
-                // Maven Build
-              
+                echo 'Hello, JDK'
+                //sh 'java -version'
             }
         }
-       }
+    }
 }
