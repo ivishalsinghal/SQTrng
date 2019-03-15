@@ -1,7 +1,7 @@
 pipeline {
-    //agent {
+    agent {
       //  label 'masterLinux'
-   // }
+    }
     stages {
         
         stage('Build') { 
