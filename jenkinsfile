@@ -1,8 +1,7 @@
 pipeline {
     agent {
-      //  label 'masterLinux'
-      any
-    }
+        label 'masterLinux'
+          }
     stages {
         
         stage('Build') { 
