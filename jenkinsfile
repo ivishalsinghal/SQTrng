@@ -1,9 +1,34 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent {
+        label 'masterLinux'
+    }
     stages {
-        stage('build') {
+        stage('Checkout') { 
             steps {
-                sh 'mvn --version'
+                // Checkout from Githubn
+                 checkout([$class: 'GitSCM', branches: [[name: 'Feb4_1']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'e2ff1a38-c6c0-4837-95b8-2887f7d3c1a9', url: 'https://github.com/ivishalsinghal/SQTrng.git']]])  
+
+            }
+        }
+        stage('Build') { 
+            steps {
+                // Maven Build
+                sh '/usr/bin/apache-maven-3.6.0/bin/mvn clean package  -DproxySet=true -DproxyHost=proxy.sce.com -DproxyPort=80  -Dhttps.nonProxyHosts=*.sce.com'
+
+            }
+        }
+        stage('SQ Analysis') { 
+            steps {
+                // SQ Analyzer
+                sh '/var/lib/jenkins/SQ/sonar-scanner-3.2.0.1227/bin/sonar-scanner scan -Djavax.net.ssl.trustStore=/etc/pki/ca-trust/extracted/java/cacerts -Djavax.net.ssl.trustStorePassword=changeit -Dsonar.host.url=https://mtxwddop04.sce.com:9000 -Dsonar.login=e69c0b362b293bb9f1996692d3b07ee7e808711a -Dsonar.projectKey=test002 -Dsonar.sources=/var/lib/jenkins/workspace/Folder1/Job3/src -Dsonar.java.binaries=/var/lib/jenkins/workspace/Folder1/Job3/target/classes'
+ 
+            }
+        }
+        stage('Nexus Upload') { 
+            steps {
+                // SQ Analyzer
+                nexusArtifactUploader artifacts: [[artifactId: 'x', classifier: '', file: '/var/lib/jenkins/workspace/Folder2/Job3/target/DummyApplication.war', type: 'war']], credentialsId: '48974a78-fea7-4399-9fbb-758db3757dc7', groupId: 'PQR', nexusUrl: '172.25.81.4:8081', nexusVersion: 'nexus3', protocol: 'https', repository: 'test01', version: '2.1'
+ 
             }
         }
     }
