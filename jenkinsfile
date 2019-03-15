@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Checkout') { 
             steps {
-                // Checkout from Githubn
+                // Checkout from Github
                  checkout([$class: 'GitSCM', branches: [[name: 'Feb4_1']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'e2ff1a38-c6c0-4837-95b8-2887f7d3c1a9', url: 'https://github.com/ivishalsinghal/SQTrng.git']]])  
 
             }
