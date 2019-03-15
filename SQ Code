@@ -21,7 +21,7 @@ stage ('SQ Analysis'){
 sh '/var/lib/jenkins/SQ/sonar-scanner-3.2.0.1227/bin/sonar-scanner scan -Djavax.net.ssl.trustStore=/etc/pki/ca-trust/extracted/java/cacerts -Djavax.net.ssl.trustStorePassword=changeit -Dsonar.host.url=https://mtxwddop04.sce.com:9000 -Dsonar.login=e008039cd78824624699fa83fa78ebc35532589d -Dsonar.projectKey=test002 -Dsonar.sources=/var/lib/jenkins/workspace/Try/Feb26_2/src -Dsonar.java.binaries=/var/lib/jenkins/workspace/Try/Feb26_2/target/classes'
 }
 
-stage ('Build OK?'){
+stage ('Build OK ?'){
     input 'Proceed to Build'
 }
 stage ('Build'){
